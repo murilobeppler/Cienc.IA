@@ -1,66 +1,92 @@
-# CiencIA - BioSaaS Platform
+# CiencIA
 
-**Democratizing access to scientific research tools with AI.**
+CiencIA is a platform designed for scientific research and education, integrating advanced AI capabilities with project management and data visualization tools. This repository contains the source code for the backend API, frontend user interface, and data processing pipelines.
 
-## Architecture
-- **Frontend**: Next.js 15+ (App Router, TailwindCSS)
-- **Backend**: FastAPI (Python 3.11)
-- **Engine**: Nextflow (Bioinformatics Pipelines)
-- **AI**: LLM Agent Integration (Planned)
+## Project Structure
 
-## Prerequisites
-- Node.js 18+
-- Python 3.11+
-- Docker & Docker Compose
-- Java 11+ (for Nextflow)
-- Nextflow (`curl -s https://get.nextflow.io | bash`)
+The repository is organized as follows:
 
-## specialized Tools Setup (Bioinformatics)
-Ensure you have the necessary containers or binaries for your pipelines.
-The default pipeline uses Docker containers.
+```
+ciencIA/
+├── src/
+│   ├── backend/        # FastAPI backend service
+│   ├── frontend/       # Next.js frontend application
+│   └── pipelines/      # Data processing pipelines (Nextflow, etc.)
+├── docs/               # Project documentation and design prompts
+├── tests/              # Test suites
+└── README.md           # This file
+```
 
 ## Getting Started
 
-### 0. Configure Gemini API (Required for AI Features)
+### Prerequisites
 
-Before running the backend, you need to configure your Gemini API key:
+- **Python 3.10+**
+- **Node.js 18+**
+- **Git**
 
-1. Get API key from: https://makersuite.google.com/app/apikey
-2. Copy `.env.example` to `.env` in the `backend` folder
-3. Add your key: `GEMINI_API_KEY=your_key_here`
+### Installation
 
-See [SETUP_GEMINI.md](./SETUP_GEMINI.md) for detailed instructions.
+#### Backend (Python)
 
-### 1. Backend (API)
-```bash
-cd backend
-python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# Linux/Mac
-source venv/bin/activate
+1. Navigate to the backend directory:
+   ```bash
+   cd src/backend
+   ```
 
-pip install -r requirements.txt
-uvicorn main:app --reload
-```
-API will be available at `http://localhost:8000` / `http://localhost:8000/docs`
+2. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   ```
 
-### 2. Frontend (UI)
-```bash
-cd frontend
-npm install
-npm run dev
-```
-App will be available at `http://localhost:3000`
+3. Activate the virtual environment:
+   - **Windows:** `venv\Scripts\activate`
+   - **Linux/Mac:** `source venv/bin/activate`
 
-### 3. Pipelines (Nextflow)
-Test the pipeline engine:
-```bash
-cd pipelines/multiomics-pipeline
-nextflow run main.nf
-```
+4. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Project Structure
-- `/frontend`: Web application
-- `/backend`: API and Orchestration logic
-- `/pipelines`: Nextflow scripts and modules
+5. Run the server:
+   ```bash
+   uvicorn main:app --reload
+   ```
+
+#### Frontend (Node.js)
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd src/frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+## Usage
+
+- Access the **Frontend** at `http://localhost:3000`
+- Access the **Backend API** documentation at `http://localhost:8000/docs`
+
+## Contributing
+
+1. Fork the repository.
+2. Create your feature branch (`git checkout -b feature/amazing-feature`).
+3. Commit your changes (`git commit -m 'Add some amazing feature'`).
+4. Push to the branch (`git push origin feature/amazing-feature`).
+5. Open a Pull Request.
+
+## License
+
+[License Name] - see the LICENSE file for details.
